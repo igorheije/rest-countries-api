@@ -1,0 +1,13 @@
+/* .container {
+  background: hsl(207, 26%, 17%);
+} */
+.paises {
+  padding: 0px 30px;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pais {
+  margin: 20px;
+}

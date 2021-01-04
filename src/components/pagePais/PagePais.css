@@ -1,0 +1,44 @@
+.pagePais {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 30px;
+  gap: 30px;
+}
+.button-back {
+  grid-column: span 2;
+  margin: 30px;
+}
+.button-back > button {
+  padding: 10px 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.button-back > button:hover {
+  background-color: hsl(207, 26%, 17%);
+}
+.button-back > button > i {
+  align-items: start;
+}
+.pagePais > img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.info {
+  padding: 30px;
+}
+.info > ul {
+  font-size: 1em;
+  margin-top: 20px;
+}
+.info > ul > li {
+  list-style-type: none;
+  line-height: 2;
+}
+
+@media (max-width: 800px) {
+  .pagePais {
+    display: block;
+  }
+}
