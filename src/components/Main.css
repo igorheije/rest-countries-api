@@ -1,6 +1,3 @@
-/* .container {
-  background: hsl(207, 26%, 17%);
-} */
 .paises {
   padding: 0px 30px;
   display: flex;
@@ -10,4 +7,9 @@
 }
 .pais {
   margin: 20px;
+}
+
+.container.dark input {
+  background: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
 }

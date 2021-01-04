@@ -20,7 +20,37 @@ a {
     transform: initial;
   }
 }
-.light {
+
+.dark span,
+.dark a,
+.dark button,
+.dark select {
+  color: hsl(0, 0%, 980%);
+  background: hsl(209, 23%, 22%);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+.light span,
+.light a,
+.light button {
+  background: hsl(0, 0%, 100%);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   color: hsl(200, 15%, 8%);
+}
+.light {
+  background: hsl(0, 0%, 98%);
+  color: hsl(200, 15%, 8%);
+}
+.dark {
   background: hsl(207, 26%, 17%);
+  color: hsl(0, 0%, 98%);
+}
+.header.light {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(209, 23%, 22%);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header.dark {
+  color: white;
+  background: hsl(209, 23%, 22%);
 }

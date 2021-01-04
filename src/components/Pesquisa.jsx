@@ -10,14 +10,14 @@ export const Pesquisa = ({ setPesquisa, setContinente }) => {
   }
   return (
     <div className="pesquisa">
-      <div>
+      <span>
         <i className="fa fa-search"></i>
         <input
           type="text"
           onChange={renderPais}
           placeholder="Search for a country..."
         />
-      </div>
+      </span>
       <select onChange={selectors} className="select">
         <option value="default">Filter by Region</option>
         <option value="Asia">Asia</option>

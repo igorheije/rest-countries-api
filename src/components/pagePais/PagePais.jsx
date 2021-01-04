@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import './PagePais.css';
-export const PagePais = () => {
+
+export const PagePais = ({ mod }) => {
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);
   const { id } = useParams();
@@ -19,12 +20,14 @@ export const PagePais = () => {
     }
     fecthProduto(url);
   }, [url]);
+  // const teste = data.currencies[0];
 
+  // console.log(teste);
   if (error) <p>{error}</p>;
   if (data === null) return <div className="loading">loading.....</div>;
   else
     return (
-      <div className="pagePais animeLeft">
+      <div className={`pagePais animeLeft ${mod ? 'light' : 'dark'}`}>
         <div className="button-back">
           <button onClick={() => history.push('/')}>
             <i className="fa fa-arrow-left"></i> Back
@@ -49,12 +52,30 @@ export const PagePais = () => {
             <li>
               <strong>Capital:</strong> {data.capital}
             </li>
+          </ul>
+          <ul>
             <li>
               <strong>Top Level Domain:</strong> {data.topLevelDomain}
             </li>
-            {/* <li>{data.currencies}</li> */}
-            {/* <li>{data.languages}</li> */}
+            {/* <li>
+              <strong>Currencies:</strong>
+              {data.currencies}
+            </li> */}
+            <li>
+              <strong>Languages: </strong>
+              {data.languages.map((lang) => (
+                <span key={lang}> {lang.name},</span>
+              ))}
+            </li>
           </ul>
+          <div className="borders">
+            <h3>Border Coutries:</h3>
+            <div>
+              {data.borders.map((e) => (
+                <span key={e}>{e}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     );

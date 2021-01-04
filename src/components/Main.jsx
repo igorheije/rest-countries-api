@@ -37,7 +37,7 @@ export const Main = ({ mod }) => {
 
   return (
     valores && (
-      <div className={`container animeLeft `}>
+      <div className={`container animeLeft ${mod ? 'light' : 'dark'} `}>
         <Pesquisa setPesquisa={setPesquisa} setContinente={setContinente} />
         <div className="paises">
           {valores.map((pais) => {

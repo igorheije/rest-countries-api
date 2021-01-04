@@ -9,10 +9,10 @@ export const Header = ({ setMod, mod }) => {
   return (
     <header className={`header ${mod ? 'light' : 'dark'}`}>
       <h1>Where in the World?</h1>
-      <button onClick={handleClick}>
+      <div onClick={handleClick}>
         <i className={mod ? 'fa fa-moon-o' : 'fa fa-sun-o'}></i>
-        <span>{mod ? 'Dark Mode' : 'Light Mode'}</span>
-      </button>
+        <div>{mod ? 'Dark Mode' : 'Light Mode'}</div>
+      </div>
     </header>
   );
 };

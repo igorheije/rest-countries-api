@@ -3,10 +3,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 }
 
-.header button {
+.header div {
   background: transparent;
   border: none;
   padding: 10px;
@@ -14,17 +13,9 @@
   cursor: pointer;
   outline: none;
   font-size: 1em;
+  display: flex;
+  align-items: center;
 }
-.header button span {
+.header div div {
   margin-left: 10px;
-}
-
-.header.light {
-  background-color: hsl(0, 0%, 100%);
-  color: hsl(209, 23%, 22%);
-}
-
-.header.dark {
-  color: white;
-  background: hsl(209, 23%, 22%);
 }
