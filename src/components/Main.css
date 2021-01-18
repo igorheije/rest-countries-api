@@ -4,6 +4,7 @@
   flex: 1;
   flex-wrap: wrap;
   justify-content: center;
+  height: 100%;
 }
 .pais {
   margin: 20px;
@@ -12,4 +13,13 @@
 .container.dark input {
   background: hsl(209, 23%, 22%);
   color: hsl(0, 0%, 100%);
+}
+.container {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.naoEncontrado {
+  height: 100vh;
+  background: hsl(209, 23%, 22%);
 }
