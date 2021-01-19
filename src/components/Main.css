@@ -13,6 +13,7 @@
 .container.dark input {
   background: hsl(209, 23%, 22%);
   color: hsl(0, 0%, 100%);
+  transition: 0.3s;
 }
 .container {
   min-height: 100vh;
