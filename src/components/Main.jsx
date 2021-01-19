@@ -2,6 +2,7 @@ import React from 'react';
 import { Card } from './Card';
 import './Main.css';
 import { Pesquisa } from './Pesquisa';
+import Planeta from '../images/planeta.svg';
 
 export const Main = ({ mod }) => {
   const [data, setData] = React.useState([]);
@@ -9,11 +10,13 @@ export const Main = ({ mod }) => {
   const [continente, setContinente] = React.useState(null);
   const [valores, setValores] = React.useState([]);
   const [error, setError] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
   const url = 'https://restcountries.eu/rest/v2/all';
 
   React.useEffect(() => {
-    async function fecthPais(url) {
+    async function fecthPais() {
       try {
+        setLoading(true);
         setError(null);
         const response = await fetch(url);
         const json = await response.json();
@@ -21,33 +24,44 @@ export const Main = ({ mod }) => {
         setValores(json);
       } catch (err) {
         setError('Um erro ocorreu');
+        setLoading(false);
       } finally {
         setError(null);
+        setLoading(false);
       }
     }
-    fecthPais(url);
+    fecthPais();
   }, []);
   React.useEffect(() => {
-    function renderPais() {
-      if (continente) {
-        setValores(() => data.filter((e) => e.region === continente));
-        if (pesquisa) {
+    function reducer() {
+      try {
+        if (continente) {
+          setValores(() => data.filter((e) => e.region === continente));
+          if (pesquisa) {
+            const letra = pesquisa.toUpperCase();
+            setValores((val) =>
+              val.filter((p) => p.name.toUpperCase().includes(letra)),
+            );
+          }
+        } else if (pesquisa) {
           const letra = pesquisa.toUpperCase();
           setValores(() =>
-            valores.filter((p) => p.name.toUpperCase().includes(letra)),
+            data.filter((p) => p.name.toUpperCase().includes(letra)),
           );
         }
-      } else if (pesquisa) {
-        const letra = pesquisa.toUpperCase();
-        setValores(() =>
-          data.filter((p) => p.name.toUpperCase().includes(letra)),
-        );
+      } catch (err) {
+        setError(err);
       }
     }
-    renderPais();
-  }, [continente, pesquisa]);
+    reducer();
+  }, [continente, pesquisa, data]);
   if (error) <p>{error}</p>;
-  if (data === null) return <div className="loading">loading.....</div>;
+  if (loading)
+    return (
+      <div className="loading">
+        <img src={Planeta} alt="Planeta" />
+      </div>
+    );
 
   return valores ? (
     <div className={`container animeLeft ${mod ? 'light' : 'dark'} `}>

@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   padding: 30px;
   gap: 30px;
+  min-height: 100vh;
 }
 .button-back {
   grid-column: span 2;
@@ -64,4 +65,23 @@
 .borders div span {
   padding: 10px 30px;
   margin: 10px;
+}
+.loading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(209, 23%, 22%);
+  color: white;
+}
+.loading img {
+  animation: loading 1s infinite;
+}
+@keyframes loading {
+  to {
+    opacity: 0;
+  }
+  from {
+    opacity: 1;
+  }
 }

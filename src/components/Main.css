@@ -20,6 +20,24 @@
 }
 
 .naoEncontrado {
-  height: 100vh;
   background: hsl(209, 23%, 22%);
+}
+.loading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(209, 23%, 22%);
+  color: white;
+}
+.loading img {
+  animation: loading 1s infinite;
+}
+@keyframes loading {
+  to {
+    opacity: 0;
+  }
+  from {
+    opacity: 1;
+  }
 }

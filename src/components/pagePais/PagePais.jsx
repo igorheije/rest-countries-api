@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import './PagePais.css';
+import Planeta from '../../images/planeta.svg';
 
 export const PagePais = ({ mod }) => {
   const [data, setData] = React.useState(null);
@@ -24,7 +25,12 @@ export const PagePais = ({ mod }) => {
 
   // console.log(teste);
   if (error) <p>{error}</p>;
-  if (data === null) return <div className="loading">loading.....</div>;
+  if (data === null)
+    return (
+      <div className="loading">
+        <img src={Planeta} alt="Planeta" />
+      </div>
+    );
   else
     return (
       <div className={`pagePais animeLeft ${mod ? 'light' : 'dark'}`}>
@@ -64,7 +70,7 @@ export const PagePais = ({ mod }) => {
             <li>
               <strong>Languages: </strong>
               {data.languages.map((lang) => (
-                <span key={lang}> {lang.name},</span>
+                <span key={lang.name}> {lang.name},</span>
               ))}
             </li>
           </ul>
