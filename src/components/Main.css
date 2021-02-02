@@ -23,7 +23,15 @@
 .naoEncontrado {
   background: hsl(209, 23%, 22%);
 }
-.loading {
+.loading .dark {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: white;
+}
+.loading .light {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -32,11 +40,12 @@
   color: white;
 }
 .loading img {
+  width: 200px;
   animation: loading 1s infinite;
 }
 @keyframes loading {
   to {
-    opacity: 0;
+    opacity: 0.5;
   }
   from {
     opacity: 1;

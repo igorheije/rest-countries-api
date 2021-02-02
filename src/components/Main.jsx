@@ -67,19 +67,23 @@ export const Main = ({ mod }) => {
     <div className={`container animeLeft ${mod ? 'light' : 'dark'} `}>
       <Pesquisa setPesquisa={setPesquisa} setContinente={setContinente} />
       <div className="paises">
-        {valores.map((pais) => {
-          return (
-            <Card
-              key={pais.name}
-              image={pais.flag}
-              name={pais.name}
-              population={pais.population}
-              region={pais.region}
-              capital={pais.capital}
-              className="pais"
-            />
-          );
-        })}
+        {valores
+          .filter((v, i) => {
+            if (i < 8) return v;
+          })
+          .map((pais) => {
+            return (
+              <Card
+                key={pais.name}
+                image={pais.flag}
+                name={pais.name}
+                population={pais.population}
+                region={pais.region}
+                capital={pais.capital}
+                className="pais"
+              />
+            );
+          })}
       </div>
     </div>
   ) : (
