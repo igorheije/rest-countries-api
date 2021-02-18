@@ -9,7 +9,6 @@ export const Main = ({ mod }) => {
   const [pesquisa, setPesquisa] = React.useState(null);
   const [continente, setContinente] = React.useState(null);
   const [valores, setValores] = React.useState([]);
-  const [error, setError] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
   const url = 'https://restcountries.eu/rest/v2/all';
 
@@ -17,16 +16,13 @@ export const Main = ({ mod }) => {
     async function fecthPais() {
       try {
         setLoading(true);
-        setError(null);
         const response = await fetch(url);
         const json = await response.json();
         setData(json);
         setValores(json);
       } catch (err) {
-        setError('Um erro ocorreu');
         setLoading(false);
       } finally {
-        setError(null);
         setLoading(false);
       }
     }
@@ -49,13 +45,10 @@ export const Main = ({ mod }) => {
             data.filter((p) => p.name.toUpperCase().includes(letra)),
           );
         }
-      } catch (err) {
-        setError(err);
-      }
+      } catch (err) {}
     }
     reducer();
   }, [continente, pesquisa, data]);
-  if (error) <p>{error}</p>;
   if (loading)
     return (
       <div className="loading">
@@ -68,9 +61,7 @@ export const Main = ({ mod }) => {
       <Pesquisa setPesquisa={setPesquisa} setContinente={setContinente} />
       <div className="paises">
         {valores
-          .filter((v, i) => {
-            if (i < 8) return v;
-          })
+          .filter((v, i) => (i < 8 ? v : ''))
           .map((pais) => {
             return (
               <Card
